@@ -6,8 +6,8 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib.patches import FancyArrowPatch
 from mpl_toolkits.mplot3d import proj3d
 matplotlib.use('TkAgg')
-import Tkinter as tk
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+import tkinter as tk
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg#, NavigationToolbar2TkAgg
 # Implement the default Matplotlib key bindings.
 from matplotlib.backend_bases import key_press_handler
 from matplotlib.figure import Figure
@@ -54,10 +54,11 @@ def Re_Canvasdraw(Eular_Matrix):
     y_axis=np.dot(R,np.array([[0],[1],[0]]))
     z_axis=np.dot(R,np.array([[0],[0],[0.5]]))
     ax.cla()
-    ax.plot([0,y_axis[0][0]], [0,y_axis[1][0]], [0,y_axis[2][0]],  'green',label='X_axis(Roll)')
+    ax.plot([0,x_axis[0][0]], [0,x_axis[1][0]], [0,x_axis[2][0]],  'red',label='X',linewidth = 5)
+    ax.plot([0,y_axis[0][0]], [0,y_axis[1][0]], [0,y_axis[2][0]],  'green',label='Y', linewidth =5)
     a = Arrow3D([0,x_axis[0][0]], [0,x_axis[1][0]], [0,x_axis[2][0]],mutation_scale=20, lw=1, arrowstyle="-|>", color="red")
-    ax.add_artist(a)
-    ax.plot([0,z_axis[0][0]], [0,z_axis[1][0]], [0,z_axis[2][0]], color='blue')
+    #ax.add_artist(a)
+    ax.plot([0,z_axis[0][0]], [0,z_axis[1][0]], [0,z_axis[2][0]], color='blue',label='Y',linewidth=5)
     ax.set_xlim(-0.6,1)
     ax.set_ylim(-0.6,1)
     ax.set_zlim(-0.6,1)
@@ -93,7 +94,7 @@ ax.plot([0,x_axis[0][0]], [0,x_axis[1][0]], [0,x_axis[2][0]],  'r',label='X_axis
 a = Arrow3D([0,y_axis[0][0]], [0,y_axis[1][0]], [0,y_axis[2][0]],mutation_scale=3, lw=1, arrowstyle="-|>", color="green")
 #ax.plot([0,y_axis[0][0]], [0,y_axis[1][0]], [0,y_axis[2][0]], color='green')
 ax.plot([0,z_axis[0][0]], [0,z_axis[1][0]], [0,z_axis[2][0]], color='blue')
-ax.add_artist(a)
+#ax.add_artist(a)
 ax.set_xlim(-0.6,1)
 ax.set_ylim(-0.6,1)
 ax.set_zlim(-0.6,1)
